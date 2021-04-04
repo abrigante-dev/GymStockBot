@@ -5,16 +5,13 @@ import json
 
 from boto3.dynamodb.conditions import Key, Attr
 
-logger = logging.getLogger()
-logger.setLevel(logging.DEBUG)
-
 # creates the HTML table that is returned to the front end
 def createStockTable(stockInfo):
     # headers for the product table
     toReturn = [
-        '<table>',
+        '<table style="margin-left:auto;margin-right:auto;">',
         '<tr>',
-        '<th>Product</th>',
+        '<th style="Color: white">In Stock Products</th>',
         '</tr>'
     ]
     for item in stockInfo['Items']:
@@ -45,15 +42,16 @@ def pullDynamo(searchIndex, searchKey):
 # if 'searchLabels' in intent_request.keys():
 
 def lambda_handler(event, context):
-
+    print(event)
     searchIndex = event['searchIndex']
     searchKey = event['searchLabels']
-    print(pullDynamo(searchIndex, searchKey))
+    toReturn = pullDynamo(searchIndex, searchKey)
 
     return{
         'statusCode': 200,
-        'body': 'Successfully returned stock status to front panel'
+        #'body': toReturn
+        'body': ''.join(toReturn)
     }
 
 
-lambda_handler({'searchIndex': 'TYPE','searchLabels': 'BARBELL'}, 3)
+# lambda_handler({'searchIndex': 'TYPE','searchLabels': 'BARBELL'}, 3)

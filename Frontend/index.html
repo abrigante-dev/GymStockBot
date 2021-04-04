@@ -2,10 +2,12 @@
 <html>
   <head>
       <style>
-        body {background-color: #454840;}
+        body {text-align: center; background-color: #454840; align-content: center}
         h1   {font-size: 48px; text-align: center; color: white;}
         p    {color: red;}
-        table {color: white}
+        table {font-size: 24px; color: white; align-content: center}
+        a {color: dodgerblue;}
+
       </style>
      <!-- **DO THIS**: -->
     <!--   Replace SDK_VERSION_NUMBER with the current SDK version number -->
@@ -39,12 +41,16 @@
   </head>
   <body>
     <h1>Gym Stock Bot</h1>
-    <div id="DIV1" , value="ROGUE" , style="display:none"></div>
-    <button type="button" onclick="callAPI('ROGUE', 'COMPANY')">ROGUE</button>
-    <button type="button" onclick="callAPI('BARBELL', 'TYPE')">Barbells</button>
-     <label>Type Company :</label>
-      <input type="text" id="searchLabels">
-     <button type="button" onclick="callAPI(document.getElementById('searchLabels').value)">Search Stock</button>
-     <div id="photos"-->
+
+    <!-- <button type="button" onclick="callAPI('ROGUE', 'COMPANY')">ROGUE</button> -->
+
+    <input type="image" src="./images/barbellbutton.png" onclick="callAPI('BARBELL', 'TYPE')"/>
+    <input type="image" src="./images/rackbutton.png" onclick="callAPI('RACK', 'TYPE')"/>
+    <input type="image" src="./images/benchbutton.png" onclick="callAPI('BENCH', 'TYPE')"/>
+    <input type="image" src="./images/platebutton.png" onclick="callAPI('PLATES', 'TYPE')"/>
+     <!-- <label>Type Company :</label> -->
+     <!-- <input type="text" id="searchLabels"> -->
+     <!-- <button type="button" onclick="callAPI(document.getElementById('searchLabels').value)">Search Stock</button> -->
+     <div id="photos" style="align-content: center" -->
   </body>
 </html>
