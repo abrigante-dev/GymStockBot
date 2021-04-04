@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: GymStockBot
+Resources:
+  CDDemoLambda1:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      FunctionName: getStock-LF3
+      Handler: LF3.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./LF3.py
+      Description: 'Lambda function for returning stock table to frontend'
+      MemorySize: 128
+      Timeout: 30
+      Role: 'arn:aws:iam::148910572833:role/service-role/getStock-LF3-role-gf86jhde'
+      Environment:
+        Variables:
+          REGION: us-west-2
