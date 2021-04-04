@@ -1,16 +1,8 @@
-import math
-import dateutil.parser
-import datetime
-import time
 import os
 import logging
 import boto3
 import json
-from datetime import datetime
-import http.client
-import requests
-import time
-import random
+
 from boto3.dynamodb.conditions import Key, Attr
 
 logger = logging.getLogger()

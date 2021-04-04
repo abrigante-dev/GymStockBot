@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <style>
+        body {background-color: #454840;}
+        h1   {font-size: 48px; text-align: center; color: white;}
+        p    {color: red;}
+        table {color: white}
+      </style>
+     <!-- **DO THIS**: -->
+    <!--   Replace SDK_VERSION_NUMBER with the current SDK version number -->
+     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.24.min.js"></script>
+     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.24.min.js"></script>
+      <script>
+        // define the callAPI function that takes a first name and last name as parameters
+        var callAPI = (searchLabels, searchType)=>{
+            // instantiate a headers object
+            var myHeaders = new Headers();
+            // add content type header to object
+            myHeaders.append("Content-Type", "application/json");
+            // using built in JSON utility package turn object to string and store in a variable
+            var raw = JSON.stringify({"searchLabels":searchLabels, "searchIndex": searchType});
+            // create a JSON object with parameters for API call and store in a variable
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+		body: raw,
+                redirect: 'follow'
+            };
+            // make API call with parameters and use promises to get response
+           fetch("https://6yg3atj0zk.execute-api.us-west-2.amazonaws.com/v1/getstock/", requestOptions)
+            .then(response => response.text())
+            .then(result => document.getElementById('photos').innerHTML = JSON.parse(result).body)
+            .catch(error => console.log('error', error));
+
+	  
+        }
+    </script>
+  </head>
+  <body>
+    <h1>Gym Stock Bot</h1>
+    <div id="DIV1" , value="ROGUE" , style="display:none"></div>
+    <button type="button" onclick="callAPI('ROGUE', 'COMPANY')">ROGUE</button>
+    <button type="button" onclick="callAPI('BARBELL', 'TYPE')">Barbells</button>
+     <label>Type Company :</label>
+      <input type="text" id="searchLabels">
+     <button type="button" onclick="callAPI(document.getElementById('searchLabels').value)">Search Stock</button>
+     <div id="photos"-->
+  </body>
+</html>
