@@ -14,7 +14,7 @@
     <!--   Replace SDK_VERSION_NUMBER with the current SDK version number -->
      <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.24.min.js"></script>
      <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.24.min.js"></script>
-      <script>
+      <script type="text/javascript">
         // define the callAPI function that takes a first name and last name as parameters
         var callAPI = (searchLabels, searchType)=>{
             // instantiate a headers object
@@ -35,25 +35,15 @@
             .then(response => response.text())
             .then(result => document.getElementById('photos').innerHTML = JSON.parse(result).body)
             .catch(error => console.log('error', error));
+
+
         }
+        window.onload = callAPI('ROGUE', 'COMPANY');
     </script>
   </head>
   <body>
-    <h1>Gym Stock Bot</h1>
-
-    <!-- <button type="button" onclick="callAPI('ROGUE', 'COMPANY')">ROGUE</button> -->
-    <h3>Search By Category</h3>
-    <input type="image" src="./images/barbellbutton.png" onclick="callAPI('BARBELL', 'TYPE')"/>
-    <input type="image" src="./images/rackbutton.png" onclick="callAPI('RACK', 'TYPE')"/>
-    <input type="image" src="./images/benchbutton.png" onclick="callAPI('BENCH', 'TYPE')"/>
-    <input type="image" src="./images/platebutton.png" onclick="callAPI('PLATES', 'TYPE')"/>
-    <h3>Search By Manufacturer</h3>
-    <a href="./pages/rogue.html"><img src="./images/roguebutton.png"></a>
-    <a href="./pages/rep.html"><img src="./images/repbutton.png"></a>
-    <a href="./pages/titan.html"><img src="./images/titanbutton.png"></a>
-     <!-- <label>Type Company :</label> -->
-     <!-- <input type="text" id="searchLabels"> -->
-     <!-- <button type="button" onclick="callAPI(document.getElementById('searchLabels').value)">Search Stock</button> -->
-     <div id="photos" style="align-content: center" -->
+    <a href="../index.html"><h1>Gym Stock Bot</h1></a>
+    <h1><img src="./subImages/rogueBanner.jpg"></h1>
+    <div id="photos" style="align-content: center" -->
   </body>
 </html>
