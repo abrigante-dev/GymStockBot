@@ -21,7 +21,7 @@ def lambda_handler(event, context):
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
             'Active': 'True',
-            'Type': 'DUMBELL',
+            'Type': 'DUMBBELL',
             'URL': './images/dumbellbutton.png',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {

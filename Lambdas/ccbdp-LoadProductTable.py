@@ -57,7 +57,7 @@ def lambda_handler(event, context):
             'Manufacturer': 'ROGUE',
             'Product': 'PowerBlock Dumbbells - Commercial Use',
             'ID': 'ROGUE PowerBlock Dumbbells - Commercial Use',
-            'Type': 'DUMBELL',
+            'Type': 'DUMBBELL',
             'URL': 'https://www.roguefitness.com/powerblocks-commercial-use',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
@@ -65,7 +65,7 @@ def lambda_handler(event, context):
             'Manufacturer': 'ROGUE',
             'Product': 'VersaSpot Dumbbell Spotter System',
             'ID': 'ROGUE VersaSpot Dumbbell Spotter System',
-            'Type': 'DUMBELL',
+            'Type': 'DUMBBELL',
             'URL': 'https://www.roguefitness.com/versaspot-dumbbell-spotter-system-black',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
@@ -1009,7 +1009,7 @@ def lambda_handler(event, context):
             'Manufacturer': 'ROGUE',
             'Product': 'Rogue DB-10 Loadable Dumbbell',
             'ID': 'ROGUE DB-10 Loadable Dumbbell',
-            'Type': 'DUMBELL',
+            'Type': 'DUMBBELL',
             'URL': 'https://www.roguefitness.com/rogue-loadable-dumbbells',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
@@ -1017,7 +1017,7 @@ def lambda_handler(event, context):
             'Manufacturer': 'ROGUE',
             'Product': 'Rogue DB-15 Loadable Dumbbell',
             'ID': 'ROGUE DB-15 Loadable Dumbbell',
-            'Type': 'DUMBELL',
+            'Type': 'DUMBBELL',
             'URL': 'https://www.roguefitness.com/rogue-loadable-dumbbells',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
@@ -1025,7 +1025,7 @@ def lambda_handler(event, context):
             'Manufacturer': 'ROGUE',
             'Product': 'Rogue Dumbbell Bumpers',
             'ID': 'ROGUE Dumbbell Bumpers',
-            'Type': 'DUMBELL',
+            'Type': 'DUMBBELL',
             'URL': 'https://www.roguefitness.com/rogue-dumbbell-bumpers',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
@@ -1033,7 +1033,7 @@ def lambda_handler(event, context):
             'Manufacturer': 'ROGUE',
             'Product': 'Rogue Dumbbell Sets',
             'ID': 'ROGUE Dumbbell Sets',
-            'Type': 'DUMBELL',
+            'Type': 'DUMBBELL',
             'URL': 'https://www.roguefitness.com/rogue-rubber-hex-dumbbell-sets',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
@@ -1041,7 +1041,7 @@ def lambda_handler(event, context):
             'Manufacturer': 'ROGUE',
             'Product': 'Rogue Dumbbells',
             'ID': 'ROGUE Dumbbells',
-            'Type': 'DUMBELL',
+            'Type': 'DUMBBELL',
             'URL': 'https://www.roguefitness.com/rogue-dumbbells',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
@@ -1049,7 +1049,7 @@ def lambda_handler(event, context):
             'Manufacturer': 'ROGUE',
             'Product': 'Rogue Urethane Dumbbells',
             'ID': 'ROGUE Urethane Dumbbells',
-            'Type': 'DUMBELL',
+            'Type': 'DUMBBELL',
             'URL': 'https://www.roguefitness.com/rogue-urethane-dumbbells-new',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
@@ -1057,7 +1057,7 @@ def lambda_handler(event, context):
             'Manufacturer': 'ROGUE',
             'Product': 'Rogue Thompson Fatbells',
             'ID': 'ROGUE Thompson Fatbells',
-            'Type': 'DUMBELL',
+            'Type': 'DUMBBELL',
             'URL': 'https://www.roguefitness.com/rogue-thompson-fatbells',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
@@ -1113,7 +1113,7 @@ def lambda_handler(event, context):
             'Manufacturer': 'ROGUE',
             'Product': 'PowerBlock Dumbbells - Commercial Use',
             'ID': 'ROGUE PowerBlock Dumbbells - Commercial Use',
-            'Type': 'DUMBELL',
+            'Type': 'DUMBBELL',
             'URL': 'https://www.roguefitness.com/powerblocks-commercial-use',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
@@ -1121,7 +1121,7 @@ def lambda_handler(event, context):
             'Manufacturer': 'ROGUE',
             'Product': 'Quick-Lock Dumbbell – 120 lb Add on Kit ',
             'ID': 'ROGUE Quick-Lock Dumbbell – 120 lb Add on Kit ',
-            'Type': 'DUMBELL',
+            'Type': 'DUMBBELL',
             'URL': 'https://www.ironmaster.com/products/add-on-kit-to-120-lbs-quick-lock/',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
@@ -1129,7 +1129,7 @@ def lambda_handler(event, context):
             'Manufacturer': 'ROGUE',
             'Product': 'Quick-Lock Adjustable Dumbbell System 45 lb Set',
             'ID': 'ROGUE Quick-Lock Adjustable Dumbbell System 45 lb Set',
-            'Type': 'DUMBELL',
+            'Type': 'DUMBBELL',
             'URL': 'https://www.ironmaster.com/products/quick-lock-dumbbell-system-45-lb-set/',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
@@ -1137,7 +1137,7 @@ def lambda_handler(event, context):
             'Manufacturer': 'ROGUE',
             'Product': 'Quick-Lock Adjustable Dumbbell System 75 lb Set',
             'ID': 'ROGUE Quick-Lock Adjustable Dumbbell System 75 lb Set',
-            'Type': 'DUMBELL',
+            'Type': 'DUMBBELL',
             'URL': 'https://www.ironmaster.com/products/quick-lock-adjustable-dumbbells-75/',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
@@ -1809,7 +1809,7 @@ def lambda_handler(event, context):
             'Manufacturer': 'ROGUE',
             'Product': 'VersaSpot Dumbbell Spotter System',
             'ID': 'ROGUE VersaSpot Dumbbell Spotter System',
-            'Type': 'DUMBELL',
+            'Type': 'DUMBBELL',
             'URL': 'https://www.roguefitness.com/versaspot-dumbbell-spotter-system-black',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
@@ -1889,7 +1889,7 @@ def lambda_handler(event, context):
             'Manufacturer': 'ROGUE',
             'Product': 'UK Rogue KG Dumbbells',
             'ID': 'ROGUE UK Rogue KG Dumbbells',
-            'Type': 'DUMBELL',
+            'Type': 'DUMBBELL',
             'URL': 'https://www.rogueeurope.eu/rogue-kg-dumbbells',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
@@ -2273,7 +2273,7 @@ def lambda_handler(event, context):
             'Manufacturer': 'REP',
             'Product': 'REP Adjustable Dumbbells',
             'ID': 'REP Adjustable Dumbbells',
-            'Type': 'DUMBELL',
+            'Type': 'DUMBBELL',
             'URL': 'https://www.repfitness.com/conditioning/strength-equipment/dumbbells/rep-adjustable-dumbbells',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
@@ -2297,7 +2297,7 @@ def lambda_handler(event, context):
             'Manufacturer': 'REP',
             'Product': 'REP Rubber Coated Hex Dumbbell Pairs',
             'ID': 'REP Rubber Coated Hex Dumbbell Pairs',
-            'Type': 'DUMBELL',
+            'Type': 'DUMBBELL',
             'URL': 'https://www.repfitness.com/conditioning/strength-equipment/dumbbells/rubber-coated-hex-dumbbells',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
@@ -2305,7 +2305,7 @@ def lambda_handler(event, context):
             'Manufacturer': 'REP',
             'Product': 'REP Rubber Grip Hex Dumbbell Pairs',
             'ID': 'REP Rubber Grip Hex Dumbbell Pairs',
-            'Type': 'DUMBELL',
+            'Type': 'DUMBBELL',
             'URL': 'https://www.repfitness.com/conditioning/strength-equipment/dumbbells/rep-rubber-grip-hex-dumbbells',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
@@ -2313,7 +2313,7 @@ def lambda_handler(event, context):
             'Manufacturer': 'REP',
             'Product': 'REP Rubber Hex Dumbbell Sets',
             'ID': 'REP Rubber Hex Dumbbell Sets',
-            'Type': 'DUMBELL',
+            'Type': 'DUMBBELL',
             'URL': 'https://www.repfitness.com/conditioning/strength-equipment/dumbbells/rep-rubber-hex-dumbbell-sets',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
@@ -2321,7 +2321,7 @@ def lambda_handler(event, context):
             'Manufacturer': 'REP',
             'Product': 'REP Urethane Coated Round Dumbbell Pairs',
             'ID': 'REP Urethane Coated Round Dumbbell Pairs',
-            'Type': 'DUMBELL',
+            'Type': 'DUMBBELL',
             'URL': 'https://www.repfitness.com/conditioning/strength-equipment/dumbbells/rep-urethane-coated-round-dumbbell-pairs',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
@@ -2329,7 +2329,7 @@ def lambda_handler(event, context):
             'Manufacturer': 'REP',
             'Product': 'REP Urethane Coated Round Dumbbell Sets',
             'ID': 'REP Urethane Coated Round Dumbbell Sets',
-            'Type': 'DUMBELL',
+            'Type': 'DUMBBELL',
             'URL': 'https://www.repfitness.com/rep-urethane-coated-round-dumbbell-sets',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
