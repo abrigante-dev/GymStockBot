@@ -54,6 +54,11 @@ def lambda_handler(event, context):
             'Type': 'KETTLEBELL',
             'URL': './images/Kettlebellsbutton.jpg',
             'LastUpdate': '2021-04-23 5:30:28'   
+        }, {
+            'Active': 'True',
+            'Type': 'BIKE',
+            'URL': './images/bikebutton.jpg',
+            'LastUpdate': '2021-04-23 5:30:28'               
         }
     ]
 
