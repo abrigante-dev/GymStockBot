@@ -1,0 +1,26 @@
+body {
+    text-align: center;
+    background-color: #454840;
+    align-content: center
+}
+h1   {
+    font-size: 48px;
+    text-align: center;
+    color: white;
+}
+h3   {
+    text-align: 
+    center; color: 
+    white;
+}
+p    {
+    color: red;
+}
+table {
+    font-size: 24px; 
+    color: white; 
+    align-content: center;
+}
+a {
+    color: dodgerblue;
+}
