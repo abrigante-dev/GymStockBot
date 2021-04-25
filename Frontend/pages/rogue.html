@@ -31,7 +31,7 @@
                 redirect: 'follow'
             };
             // make API call with parameters and use promises to get response
-           fetch("https://x5piwldd9l.execute-api.us-west-2.amazonaws.com/v1/getstock/", requestOptions)
+           fetch("https://m2bf6kgtl6.execute-api.us-east-1.amazonaws.com/v1/getstock/", requestOptions)
             .then(response => response.text())
             .then(result => document.getElementById('photos').innerHTML = JSON.parse(result).body)
             .catch(error => console.log('error', error));
