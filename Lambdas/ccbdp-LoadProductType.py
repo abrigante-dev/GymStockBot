@@ -21,9 +21,39 @@ def lambda_handler(event, context):
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
             'Active': 'True',
+            'Type': 'DUMBELL',
+            'URL': './images/dumbellbutton.png',
+            'LastUpdate': '2021-04-23 5:30:28'
+        }, {
+            'Active': 'True',
             'Type': 'BENCH',
             'URL': './images/benchbutton.png',
             'LastUpdate': '2021-04-23 5:30:28'
+        }, {
+            'Active': 'True',
+            'Type': 'ROWER',
+            'URL': './images/rowerbutton.jpg',
+            'LastUpdate': '2021-04-23 5:30:28'      
+        }, {
+            'Active': 'True',
+            'Type': 'ROPE',
+            'URL': './images/ropebutton.jpg',
+            'LastUpdate': '2021-04-23 5:30:28'   
+        }, {
+            'Active': 'True',
+            'Type': 'TRAINER',
+            'URL': './images/trainerbutton.jpg',
+            'LastUpdate': '2021-04-23 5:30:28'   
+        }, {
+            'Active': 'True',
+            'Type': 'ACCESSORY',
+            'URL': './images/accessoriesbutton.jpg',
+            'LastUpdate': '2021-04-23 5:30:28'   
+        }, {
+            'Active': 'True',
+            'Type': 'KETTLEBELL',
+            'URL': './images/Kettlebellsbutton.jpg',
+            'LastUpdate': '2021-04-23 5:30:28'   
         }
     ]
 
