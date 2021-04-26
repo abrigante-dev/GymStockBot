@@ -8,17 +8,17 @@ def lambda_handler(event, context):
             'Active': 'True',
             'Manufacturer': 'TITAN',
             'URL': './images/titanbutton.png',
-            'LastUpdate': '2021-04-23 5:30:28'
+            'LastUpdate': '2021-04-23 05:30:28'
         }, {
             'Active': 'True',
             'Manufacturer': 'ROGUE',
             'URL': './images/roguebutton.png',
-            'LastUpdate': '2021-04-23 5:30:28'
+            'LastUpdate': '2021-04-23 05:30:28'
         }, {
             'Active': 'True',
             'Manufacturer': 'REP',
             'URL': './images/repbutton.png',
-            'LastUpdate': '2021-04-23 5:30:28'
+            'LastUpdate': '2021-04-23 05:30:28'
         }
     ]
 
