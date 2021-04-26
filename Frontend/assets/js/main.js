@@ -115,9 +115,19 @@ function loadManufacturers(){
     .catch(error => console.log('error', error));
 }
 
+function showSubscribe(){
+    alert("hello");
+}
+
+function loadSubscribe() {
+    if(User.UserName == "") {
+        document.getElementById('Subscribe').innerHTML = "<h3>If you'd like to subscribe and be notified when a product becomes available</h3><input type='submit' class='subscribeButton' onclick='showSubscribe()' value='Click here'>";
+    }
+}
 
 $(document).ready(function() {
     loadTypes();
     loadManufacturers();
+    loadSubscribe();
 });
 

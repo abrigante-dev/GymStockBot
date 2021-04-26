@@ -9,6 +9,7 @@ h1 {
 }
 h3 {
     font-size: 24px;
+    margin-top: 30px;
 }
 p {
     color: red;
@@ -16,9 +17,12 @@ p {
 table {
     font-size: 24px;
 }
+th {
+    font-weight: normal;
+}
 a {
     color: dodgerblue;
-    font-size: smaller;
+    font-size: large;
 }
 
 .Type {
@@ -55,3 +59,13 @@ a {
 .AllStockTable {
     text-align: left;
 }    
+.Subscribe {
+    text-align: center;
+    margin-bottom: 50px;    
+}
+
+.subscribeButton {
+    background-color: #454840;
+    color: white;
+    font-size: 24px;
+}
