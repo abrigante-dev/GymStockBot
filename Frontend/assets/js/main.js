@@ -2,6 +2,15 @@
 
 var User = {'UserName': '','Email': '','Phone': '','NotificationFrequency': 0};
 
+var lastSearch = {"SearchType": "", "SearchKey": ""};
+
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
 
 function populateInStock(result){
     var answer = "";
@@ -24,6 +33,15 @@ function populateAllStock(result){
 }
 
 var callAPI = (SearchKey, SearchType)=>{
+    // Save search for refreshing
+    lastSearch = {"SearchType": SearchType, "SearchKey": SearchKey};
+    
+    document.getElementById('InStock').innerHTML = "";
+    document.getElementById('AllStock').innerHTML = "";
+    console.log(JSON.stringify(lastSearch));
+    
+    sleep(1000);
+    
     // In Stock Products
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -127,6 +145,8 @@ function submitUser(){
             };
 
     document.getElementById('Subscribe').innerHTML = "<h3>We received your information.<BR>Just click on a Subscribe button to get<BR>notified when that product gets in stock.<BR>If you'd like to modify your information</h3><input type='submit' class='subscribeButton' onclick='showSubscribe()' value='Click here'>";
+    
+    if(lastSearch.SearchType != "") {callAPI(lastSearch.SearchKey, lastSearch.SearchType);}
 }
 
 function showSubscribe(){
@@ -154,6 +174,48 @@ function loadSubscribe() {
     if(User.UserName == "") {
         document.getElementById('Subscribe').innerHTML = "<h3>If you'd like to subscribe and be notified when a product becomes available</h3><input type='submit' class='subscribeButton' onclick='showSubscribe()' value='Click here'>";
     }
+}
+
+function productSubscribe(productID) {
+    // Subscribe
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");    
+    var raw = JSON.stringify({"Subscribe": "True", "UserName": User.UserName, "ProductID": productID, "Email": User.Email, "Phone": User.Phone, "Frequency": User.NotificationFrequency, "Time": (new Date().toISOString())});
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
+    
+    // make API call with parameters and use promises to get response
+   fetch("https://m2bf6kgtl6.execute-api.us-east-1.amazonaws.com/v1/subscribe/", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log('result', result))
+    .catch(error => console.log('error', error));    
+
+    if(lastSearch.SearchType != "") {callAPI(lastSearch.SearchKey, lastSearch.SearchType);}
+}
+
+function productUnsubscribe(productID) {
+    // Unsubscribe
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");    
+    var raw = JSON.stringify({"Subscribe": "False", "UserName": User.UserName, "ProductID": productID});
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
+    
+    // make API call with parameters and use promises to get response
+   fetch("https://m2bf6kgtl6.execute-api.us-east-1.amazonaws.com/v1/subscribe/", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log('result', result))
+    .catch(error => console.log('error', error));    
+
+    if(lastSearch.SearchType != "") {callAPI(lastSearch.SearchKey, lastSearch.SearchType);}    
 }
 
 $(document).ready(function() {
