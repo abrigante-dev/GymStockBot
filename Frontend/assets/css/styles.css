@@ -15,14 +15,14 @@ p {
     color: red;
 }
 table {
-    font-size: 24px;
+    font-size: 18px;    
 }
 th {
     font-weight: normal;
+    font-size: 24px;
 }
 a {
     color: dodgerblue;
-    font-size: large;
 }
 
 .Type {
@@ -37,34 +37,57 @@ a {
     vertical-align: middle;
 }
 
-.Products {
-    margin-top: 25px;
-    margin-left: 50px;
-    margin-right: 50px
-}
-
-.InStock {
-    margin-bottom: 30px;    
-}    
-
-.AllStock {    
-    margin-bottom: 50px;
-}   
-
-.InStockTable {
-    text-align: left;
-}
-
-.AllStockTable {
-    text-align: left;
-}    
 .Subscribe {
     text-align: center;
 }
 
-.subscribeButton, .productButton {
+.subscribeButton {
     background-color: #454840;
     color: white;
     font-size: 24px;
 }
 
+.subscribeButton:hover {
+    color: #FF0040;
+}
+
+.Products {
+    margin-top: 25px;    
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+}
+
+.InStock {
+    margin-bottom: 30px;
+}
+
+.AllStock {
+    margin-bottom: 50px;
+}
+
+.InStockTable {
+    text-align: left;
+    width: 100%;    
+}
+
+.AllStockTable {
+    text-align: left;
+    width: 100%;
+}
+
+.subscribeTd {
+    text-align: right;
+}
+
+.productButton {
+    background-color: #454840;
+    color: white;
+    margin: 2px;
+}
+
+.productButton:hover {
+    color: #FF0040;
+}

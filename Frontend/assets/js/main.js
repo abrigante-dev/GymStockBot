@@ -116,7 +116,11 @@ function loadManufacturers(){
 }
 
 function showSubscribe(){
+    var answer = "";
     answer = "<h3>Please enter your information:</h3>";
+    answer += "<div></div>";
+    
+    
     document.getElementById('Subscribe').innerHTML = answer;
 }
 
