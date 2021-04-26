@@ -1,13 +1,15 @@
 // var apigClient = apigClientFactory.newClient();
 
+var User = {'UserName': '','Email': '','Phone': '','NotificationFrequency': 0};
+
 // define the callAPI function that takes a first name and last name as parameters
-var callAPI = (searchLabels, searchType)=>{
+var callAPI = (SearchKey, SearchType)=>{
     // instantiate a headers object
     var myHeaders = new Headers();
     // add content type header to object
     myHeaders.append("Content-Type", "application/json");
     // using built in JSON utility package turn object to string and store in a variable
-    var raw = JSON.stringify({"searchLabels":searchLabels, "searchIndex": searchType});
+    var raw = JSON.stringify({"SearchType": SearchType, "SearchKey": SearchKey, "SearchScope": "InStock", "UserName": User.UserName});
     // create a JSON object with parameters for API call and store in a variable
     var requestOptions = {
         method: 'POST',
@@ -31,7 +33,7 @@ function populateTypes(result){
     answer = answer.split("},");        
     for(var index = 0; index < answer.length; index++){
         var element = JSON.parse(answer[index]);
-        types += `<input class="Type" type="image" src="` + element.URL + `" onclick="callAPI('` + element.Type + `', 'TYPE')" />`;        
+        types += `<input class="Type" type="image" src="` + element.URL + `" onclick="callAPI('` + element.Type + `', 'Type')" />`;        
     }
     return types;
 }
@@ -51,20 +53,20 @@ function loadTypes(){
     .then(response => response.text())
     .then(result => document.getElementById('Categories').innerHTML = populateTypes(result))
     .catch(error => console.log('error', error));
-/*
-    console.log(response);
-    console.log(answer);
-    
+}
 
-    if(answer != "") {
-        console.log(response);
+function populateManufacturers(result){    
+    var manufacturers = "";
+    var answer = JSON.parse(result);
+    answer = answer.replace("[","");
+    answer = answer.replace("]","");    
+    answer = answer.replaceAll("},","}},"); 
+    answer = answer.split("},");        
+    for(var index = 0; index < answer.length; index++){
+        var element = JSON.parse(answer[index]);
+        manufacturers += `<input class="Manufacturer" type="image" src="` + element.URL + `" onclick="callAPI('` + element.Manufacturer + `', 'Manufacturer')" />`;        
     }
-*/
-
-
-    //document.getElementById('InStock').innerHTML =
-
-    //document.getElementById('Categories').innerHTML = `<input type="image" src="./images/barbellbutton.png" onclick="callAPI('BARBELL', 'TYPE')"/><input type="image" src="./images/rackbutton.png" onclick="callAPI('RACK', 'TYPE')"/><input type="image" src="./images/benchbutton.png" onclick="callAPI('BENCH', 'TYPE')"/><input type="image" src="./images/platebutton.png" onclick="callAPI('PLATES', 'TYPE')"/>`;
+    return manufacturers;
 }
 
 function loadManufacturers(){
@@ -80,15 +82,10 @@ function loadManufacturers(){
     // make API call with parameters and use promises to get response
     fetch("https://m2bf6kgtl6.execute-api.us-east-1.amazonaws.com/v1/getlist/", requestOptions)
     .then(response => response.text())
-    .then(result => answer = JSON.parse(result).body)
+    .then(result => document.getElementById('Manufacturers').innerHTML = populateManufacturers(result))
     .catch(error => console.log('error', error));
-
-    if(answer != "") {
-        console.log(response);
-    }
-
-//    //document.getElementById('Manufacturers').innerHTML = `<a href="./images/rogue.html"><img src="./images/roguebutton.png"></a><a href="./pages/rep.html"><img src="./images/repbutton.png"></a><a href="./pages/titan.html"><img src="./images/titanbutton.png"></a>`;
 }
+
 
 $(document).ready(function() {
     loadTypes();

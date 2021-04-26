@@ -7,17 +7,17 @@ def lambda_handler(event, context):
         {
             'Active': 'True',
             'Manufacturer': 'TITAN',
-            'URL': './images/titanBanner.jpg',
+            'URL': './images/titanbutton.png',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
             'Active': 'True',
             'Manufacturer': 'ROGUE',
-            'URL': './images/rogueBanner.jpg',
+            'URL': './images/roguebutton.png',
             'LastUpdate': '2021-04-23 5:30:28'
         }, {
             'Active': 'True',
             'Manufacturer': 'REP',
-            'URL': './images/repBanner.jpg',
+            'URL': './images/repbutton.png',
             'LastUpdate': '2021-04-23 5:30:28'
         }
     ]
