@@ -51,6 +51,18 @@ a {
     color: #FF0040;
 }
 
+.SubscribeTable {
+    text-align: left;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: auto;
+    margin-right: auto;    
+}
+
+.SubscribeTable>tbody>tr>td {
+    padding: 3px;
+}
+
 .Products {
     margin-top: 25px;    
     padding-left: 5px;
@@ -80,6 +92,17 @@ a {
 
 .subscribeTd {
     text-align: right;
+}
+
+.notifyLabel{
+    padding-left: 10px;
+    font-weight: normal;
+}
+
+.userInput{
+    color: dodgerblue;
+    font-weight: 700;
+    background-color: #454840;
 }
 
 .productButton {
