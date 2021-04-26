@@ -24,3 +24,8 @@ table {
 a {
     color: dodgerblue;
 }
+
+.Type {
+    height: 200px;
+    max-width: 160px;
+}

@@ -32,32 +32,32 @@ def lambda_handler(event, context):
         }, {
             'Active': 'True',
             'Type': 'ROWER',
-            'URL': './images/rowerbutton.jpg',
+            'URL': './images/rowerbutton.png',
             'LastUpdate': '2021-04-23 5:30:28'      
         }, {
             'Active': 'True',
             'Type': 'ROPE',
-            'URL': './images/ropebutton.jpg',
+            'URL': './images/ropebutton.png',
             'LastUpdate': '2021-04-23 5:30:28'   
         }, {
             'Active': 'True',
             'Type': 'TRAINER',
-            'URL': './images/trainerbutton.jpg',
+            'URL': './images/trainerbutton.png',
             'LastUpdate': '2021-04-23 5:30:28'   
         }, {
             'Active': 'True',
             'Type': 'ACCESSORY',
-            'URL': './images/accessoriesbutton.jpg',
+            'URL': './images/accessoriesbutton.png',
             'LastUpdate': '2021-04-23 5:30:28'   
         }, {
             'Active': 'True',
             'Type': 'KETTLEBELL',
-            'URL': './images/Kettlebellsbutton.jpg',
+            'URL': './images/kettlebellsbutton.png',
             'LastUpdate': '2021-04-23 5:30:28'   
         }, {
             'Active': 'True',
             'Type': 'BIKE',
-            'URL': './images/bikebutton.jpg',
+            'URL': './images/bikebutton.png',
             'LastUpdate': '2021-04-23 5:30:28'               
         }
     ]

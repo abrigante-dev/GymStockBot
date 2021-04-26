@@ -22,9 +22,18 @@ var callAPI = (searchLabels, searchType)=>{
     .catch(error => console.log('error', error));
 }
 
-function populateTypes(result){
-    console.log(result);
-    return "Hello";
+function populateTypes(result){    
+    var types = "";
+    var answer = JSON.parse(result);
+    answer = answer.replace("[","");
+    answer = answer.replace("]","");    
+    answer = answer.replaceAll("},","}},"); 
+    answer = answer.split("},");        
+    for(var index = 0; index < answer.length; index++){
+        var element = JSON.parse(answer[index]);
+        types += `<input class="Type" type="image" src="` + element.URL + `" onclick="callAPI('` + element.Type + `', 'TYPE')" />`;        
+    }
+    return types;
 }
 
 function loadTypes(){
@@ -40,7 +49,7 @@ function loadTypes(){
     // make API call with parameters and use promises to get response
     fetch("https://m2bf6kgtl6.execute-api.us-east-1.amazonaws.com/v1/getlist/", requestOptions)
     .then(response => response.text())
-    .then(result => document.getElementById('InStock').innerHTML = populateTypes(result)) /*JSON.parse(result).body)*/
+    .then(result => document.getElementById('Categories').innerHTML = populateTypes(result))
     .catch(error => console.log('error', error));
 /*
     console.log(response);
