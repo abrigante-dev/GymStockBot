@@ -2,15 +2,28 @@
 
 var User = {'UserName': '','Email': '','Phone': '','NotificationFrequency': 0};
 
-// define the callAPI function that takes a first name and last name as parameters
+
+function populateInStock(result){
+    var answer = "";
+    result.forEach(element => answer += element);
+    answer = answer.replace("<table>", '<table class="InStockTable">');
+    answer = answer.replace("<th></th>", '<th>In-Stock Products</th>');
+    return answer;
+}
+
+function populateAllStock(result){
+    var answer = "";
+    result.forEach(element => answer += element);
+    answer = answer.replace("<table>", '<table class="AllStockTable">');
+    answer = answer.replace("<th></th>", '<th>All Products</th>');
+    return answer;
+}
+
 var callAPI = (SearchKey, SearchType)=>{
-    // instantiate a headers object
+    // In Stock Products
     var myHeaders = new Headers();
-    // add content type header to object
     myHeaders.append("Content-Type", "application/json");
-    // using built in JSON utility package turn object to string and store in a variable
     var raw = JSON.stringify({"SearchType": SearchType, "SearchKey": SearchKey, "SearchScope": "InStock", "UserName": User.UserName});
-    // create a JSON object with parameters for API call and store in a variable
     var requestOptions = {
         method: 'POST',
         headers: myHeaders,
@@ -20,20 +33,36 @@ var callAPI = (SearchKey, SearchType)=>{
     // make API call with parameters and use promises to get response
    fetch("https://m2bf6kgtl6.execute-api.us-east-1.amazonaws.com/v1/getstock/", requestOptions)
     .then(response => response.text())
-    .then(result => document.getElementById('InStock').innerHTML = JSON.parse(result).body)
+    .then(result => document.getElementById('InStock').innerHTML = populateInStock(JSON.parse(result)))
     .catch(error => console.log('error', error));
+
+
+    // All Stock
+    var raw = JSON.stringify({"SearchType": SearchType, "SearchKey": SearchKey, "SearchScope": "", "UserName": User.UserName});
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
+    // make API call with parameters and use promises to get response
+   fetch("https://m2bf6kgtl6.execute-api.us-east-1.amazonaws.com/v1/getstock/", requestOptions)
+    .then(response => response.text())
+    .then(result => document.getElementById('AllStock').innerHTML = populateAllStock(JSON.parse(result)))
+    .catch(error => console.log('error', error));
+
 }
 
-function populateTypes(result){    
+function populateTypes(result){
     var types = "";
     var answer = JSON.parse(result);
     answer = answer.replace("[","");
-    answer = answer.replace("]","");    
-    answer = answer.replaceAll("},","}},"); 
-    answer = answer.split("},");        
+    answer = answer.replace("]","");
+    answer = answer.replaceAll("},","}},");
+    answer = answer.split("},");
     for(var index = 0; index < answer.length; index++){
         var element = JSON.parse(answer[index]);
-        types += `<input class="Type" type="image" src="` + element.URL + `" onclick="callAPI('` + element.Type + `', 'Type')" />`;        
+        types += `<input class="Type" type="image" src="` + element.URL + `" onclick="callAPI('` + element.Type + `', 'Type')" />`;
     }
     return types;
 }
@@ -55,16 +84,16 @@ function loadTypes(){
     .catch(error => console.log('error', error));
 }
 
-function populateManufacturers(result){    
+function populateManufacturers(result){
     var manufacturers = "";
     var answer = JSON.parse(result);
     answer = answer.replace("[","");
-    answer = answer.replace("]","");    
-    answer = answer.replaceAll("},","}},"); 
-    answer = answer.split("},");        
+    answer = answer.replace("]","");
+    answer = answer.replaceAll("},","}},");
+    answer = answer.split("},");
     for(var index = 0; index < answer.length; index++){
         var element = JSON.parse(answer[index]);
-        manufacturers += `<input class="Manufacturer" type="image" src="` + element.URL + `" onclick="callAPI('` + element.Manufacturer + `', 'Manufacturer')" />`;        
+        manufacturers += `<input class="Manufacturer" type="image" src="` + element.URL + `" onclick="callAPI('` + element.Manufacturer + `', 'Manufacturer')" />`;
     }
     return manufacturers;
 }
@@ -91,19 +120,4 @@ $(document).ready(function() {
     loadTypes();
     loadManufacturers();
 });
-
-
-
-
-
-
-/*
-
-     <!-- <label>Type Company :</label> -->
-     <!-- <input type="text" id="searchLabels"> -->
-     <!-- <button type="button" onclick="callAPI(document.getElementById('searchLabels').value)">Search Stock</button> -->
-
-
-    <!-- <button type="button" onclick="callAPI('ROGUE', 'COMPANY')">ROGUE</button> -->
-*/
 

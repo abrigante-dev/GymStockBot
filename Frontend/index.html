@@ -7,9 +7,9 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="CCBD Project">
     <meta name="author" content="MM">
-  
-    <title>Gym Stock Bot</title>  
-  
+
+    <title>Gym Stock Bot</title>
+
     <!-- Bootstrap core CSS -->
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
 
@@ -19,7 +19,7 @@
     <!-- Custom styles for this template -->
     <link href="./assets/css/styles.css" rel="stylesheet">
 
-    <!-- api gateway generated sdk 
+    <!-- api gateway generated sdk
     <script type="text/javascript" src="./assets/js/sdk/lib/axios/dist/axios.standalone.js"></script>
     <script type="text/javascript" src="./assets/js/sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
     <script type="text/javascript" src="./assets/js/sdk/lib/CryptoJS/rollups/sha256.js"></script>
@@ -43,16 +43,14 @@
   </head>
   <body>
     <h1>Gym Stock Bot</h1>
-
     <h3>Search By Category</h3>
     <div id="Categories"></div>
-
     <h3>Search By Manufacturer</h3>
     <div id="Manufacturers"></div>
-
-    <div id="InStock" style="align-content: center"></div>
-     
-    <div id="AllStock" style="align-content: center"></div>
+    <div class="Products">
+        <div id="InStock" class="InStock"></div>
+        <div id="AllStock" class="AllStock"></div>
+    </div>
 
     <!-- Bootstrap core JavaScript -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -61,9 +59,9 @@
     <script src="./assets/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="./assets/js/ie10-viewport-bug-workaround.js"></script>
-    <!-- custom scroll bar 
+    <!-- custom scroll bar
     <script src='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js'></script>-->
-    <!-- main.js -->
-    <script src="./assets/js/main.js"></script>     
+    <!-- Code for this page -->
+    <script src="./assets/js/main.js"></script>
   </body>
 </html>

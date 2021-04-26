@@ -18,6 +18,7 @@ table {
 }
 a {
     color: dodgerblue;
+    font-size: smaller;
 }
 
 .Type {
@@ -31,3 +32,26 @@ a {
     margin: 5px;
     vertical-align: middle;
 }
+
+.Products {
+    margin-top: 50px; 
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 50px;
+}
+
+.InStock {
+    margin-bottom: 50px;    
+}    
+
+.AllStock {    
+    margin-bottom: 50px;
+}   
+
+.InStockTable {
+    text-align: left;
+}
+
+.AllStockTable {
+    text-align: left;
+}    
