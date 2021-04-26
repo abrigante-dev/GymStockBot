@@ -116,7 +116,8 @@ function loadManufacturers(){
 }
 
 function showSubscribe(){
-    alert("hello");
+    answer = "<h3>Please enter your information:</h3>";
+    document.getElementById('Subscribe').innerHTML = answer;
 }
 
 function loadSubscribe() {

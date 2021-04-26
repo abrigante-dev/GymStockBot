@@ -9,6 +9,9 @@ from requests_aws4auth import AWS4Auth
 from elasticsearch import Elasticsearch, RequestsHttpConnection
 from boto3.dynamodb.conditions import Key, Attr
 
+username = ''
+masterProduct = {}
+
 credentials = boto3.Session().get_credentials()
 region = 'us-east-1'
 service = 'es'
@@ -20,10 +23,18 @@ es = Elasticsearch(
     use_ssl=True,
     verify_certs=True,
     connection_class=RequestsHttpConnection)
-    
-masterProduct = {}    
+
+
 # creates the HTML table that is returned to the front end
 def createStockTable(itemTuple):
+    global username
+    
+    userDict = {}
+    for item in itemTuple:
+        key, value = item[0], item[1]
+        userDict[key] = value
+        
+    print(userDict)
     # headers for the product table
     toReturn = [
         '<table>',
@@ -37,20 +48,18 @@ def createStockTable(itemTuple):
         # name-hyperlink
         toReturn.append('<td><a href="{}" target="_blank">{}</a></td>'.format(tempItem['URL'],tempItem['ID']))
         
-        if len(username) > 0:
-            #if user is not subscribed
-                toReturn.append('<td class="subscribeTd"><input type='submit' class="SubscribeButton" class='productSubscribe' onclick='productSubscribe({})' value='Subscribe'></td>'.format(tempItem['ID']))
-            else
-                toReturn.append('<td class="subscribeTd"><input type='submit' class="SubscribeButton" class='productUnsubscribe' onclick='productUnsubscribe({})' value='Unsubscribe'></td>'.format(tempItem['ID']))
-
+        if len(username) == 0:
+            if userDict[tempItem['ID']] == 'True':
+                toReturn.append('<td class="subscribeTd"><input type="submit" class="productButton" class="productSubscribe" onclick="productSubscribe({})" value="Subscribe"></td>'.format(tempItem['ID']))
+            else:
+                toReturn.append('<td class="subscribeTd"><input type="submit" class="productButton" class="productUnsubscribe" onclick="productUnsubscribe({})" value="Unsubscribe"></td>'.format(tempItem['ID']))
+        
         toReturn.append('</tr>')
 
     toReturn.append('</table>')
-    print(toReturn)
+    #print(toReturn)
     return toReturn
    
-    
-username = ''
 
 def checkSubscription(sortedDict):
     toReturn = []

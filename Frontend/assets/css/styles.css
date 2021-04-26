@@ -62,8 +62,9 @@ a {
     text-align: center;
 }
 
-.subscribeButton {
+.subscribeButton, .productButton {
     background-color: #454840;
     color: white;
     font-size: 24px;
 }
+
