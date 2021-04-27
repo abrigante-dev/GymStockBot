@@ -1,1 +1,0 @@
-# SmartPhotoAlbum-Frontend Repo

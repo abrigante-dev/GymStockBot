@@ -1,1 +1,1 @@
-# SmartPhotoAlbum-Frontend Repo
+# CCBD Project-Frontend Repo
