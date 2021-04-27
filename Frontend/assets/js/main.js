@@ -32,7 +32,7 @@ function populateAllStock(result){
     return answer;
 }
 
-var callAPI = (SearchKey, SearchType)=>{
+var callAPI = (SearchKey, SearchType, Delay)=>{
     // Save search for refreshing
     lastSearch = {"SearchType": SearchType, "SearchKey": SearchKey};
     
@@ -40,7 +40,7 @@ var callAPI = (SearchKey, SearchType)=>{
     document.getElementById('AllStock').innerHTML = "";
     //console.log(JSON.stringify(lastSearch));
     
-    sleep(2000);
+    if(Delay) {sleep(2000);}
     
     // In Stock Products
     var myHeaders = new Headers();
@@ -156,11 +156,11 @@ function submitUser(){
 
     document.getElementById('Subscribe').innerHTML = "<h3>We received your information.<BR>Just click on a Subscribe button to get<BR>notified when that product gets in stock.<BR>If you'd like to modify your information</h3><input type='submit' class='subscribeButton' onclick='showSubscribe()' value='Click here'>";
     
-    if(lastSearch.SearchType != "") {callAPI(lastSearch.SearchKey, lastSearch.SearchType);}
+    if(lastSearch.SearchType != "") {callAPI(lastSearch.SearchKey, lastSearch.SearchType, false);}
 }
 
 function showSubscribe(){
-    User = {'UserName': '','Email': '','Phone': '','NotificationFrequency': 0};
+    User = {'UserName': '','Email': '','Phone': '','NotificationFrequency': '0'};
 
     var answer = "";
     answer = "<h3>Please enter your information:</h3>";
@@ -183,7 +183,7 @@ function showSubscribe(){
 function loadSubscribe() {
     if(User.UserName == "") {
         document.getElementById('Subscribe').innerHTML = "<h3>If you'd like to subscribe and be notified when a product becomes available</h3><input type='submit' class='subscribeButton' onclick='showSubscribe()' value='Click here'>";
-        if(lastSearch.SearchType != "") {callAPI(lastSearch.SearchKey, lastSearch.SearchType);} 
+        if(lastSearch.SearchType != "") {callAPI(lastSearch.SearchKey, lastSearch.SearchType, false);} 
     }
 }
 
@@ -208,7 +208,7 @@ function productSubscribe(productID) {
     .then(result => console.log('result', result))
     .catch(error => console.log('error', error));    
 
-    if(lastSearch.SearchType != "") {callAPI(lastSearch.SearchKey, lastSearch.SearchType);}
+    if(lastSearch.SearchType != "") {callAPI(lastSearch.SearchKey, lastSearch.SearchType, true);}
 }
 
 function productUnsubscribe(productID) {
@@ -229,7 +229,7 @@ function productUnsubscribe(productID) {
     .then(result => console.log('result', result))
     .catch(error => console.log('error', error));    
 
-    if(lastSearch.SearchType != "") {callAPI(lastSearch.SearchKey, lastSearch.SearchType);}    
+    if(lastSearch.SearchType != "") {callAPI(lastSearch.SearchKey, lastSearch.SearchType, true);}    
 }
 
 $(document).ready(function() {
