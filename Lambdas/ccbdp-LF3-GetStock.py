@@ -48,11 +48,11 @@ def createStockTable(itemTuple):
         # name-hyperlink
         toReturn.append('<td><a href="{}" target="_blank">{}</a></td>'.format(tempItem['URL'],tempItem['ID']))
         
-        if len(username) == 0:
+        if len(username) > 0:
             if userDict[tempItem['ID']] == 'True':
-                toReturn.append('<td class="subscribeTd"><input type="submit" class="productButton" class="productUnsubscribe" onclick="productUnsubscribe({})" value="Unsubscribe"></td>'.format(tempItem['ID']))
+                toReturn.append('<td class="subscribeTd"><input type="submit" class="productButton" class="productUnsubscribe" onclick="productUnsubscribe(`{}`)" value="Unsubscribe"></td>'.format(tempItem['ID']))
             else:
-                toReturn.append('<td class="subscribeTd"><input type="submit" class="productButton" class="productSubscribe" onclick="productSubscribe({})" value="Subscribe"></td>'.format(tempItem['ID']))
+                toReturn.append('<td class="subscribeTd"><input type="submit" class="productButton" class="productSubscribe" onclick="productSubscribe(`{}`)" value="Subscribe"></td>'.format(tempItem['ID']))
         
         toReturn.append('</tr>')
 
