@@ -17,7 +17,7 @@ function populateInStock(result){
     result.forEach(element => answer += element);
     answer = answer.replace("<table>", '<table class="InStockTable">');
     if(answer.indexOf("<td>") > 0){
-        answer = answer.replace("<th></th>", '<th>In-Stock Products</th>');
+        answer = answer.replace("<th></th>", '<th>In-Stock Products (ordered by popularity)</th>');
     } else {
         answer = answer.replace("<th></th>", '<th>There are no such items currently in-stock.<BR>Subscribe to get them first!</th>');
     }
@@ -28,7 +28,7 @@ function populateAllStock(result){
     var answer = "";
     result.forEach(element => answer += element);
     answer = answer.replace("<table>", '<table class="AllStockTable">');
-    answer = answer.replace("<th></th>", '<th>All Products</th>');
+    answer = answer.replace("<th></th>", '<th>All Products (ordered by popularity)</th>');
     return answer;
 }
 
@@ -38,9 +38,9 @@ var callAPI = (SearchKey, SearchType)=>{
     
     document.getElementById('InStock').innerHTML = "";
     document.getElementById('AllStock').innerHTML = "";
-    console.log(JSON.stringify(lastSearch));
+    //console.log(JSON.stringify(lastSearch));
     
-    sleep(1000);
+    sleep(2000);
     
     // In Stock Products
     var myHeaders = new Headers();
@@ -138,6 +138,16 @@ function loadManufacturers(){
 }
 
 function submitUser(){
+    if (document.getElementById('UserName').value == "") {
+        alert("You must enter a User Name to keep track of your choises!");
+        return;
+    } 
+    
+    if (document.getElementById('Email').value == "" && document.getElementById('Phone').value == "") {
+        alert("Please enter an email address or phone number to be notified!");
+        return;
+    }
+    
     User = {'UserName': document.getElementById('UserName').value,
             'Email': document.getElementById('Email').value,
             'Phone': document.getElementById('Phone').value,
@@ -159,7 +169,7 @@ function showSubscribe(){
     answer += "<tr><td>Phone Number</td><td><input id='Phone' class='userInput' type='text'></td></tr>";
     answer += "<tr><td>Email address</td><td><input id='Email' class='userInput' type='text'></td></tr>";
     answer += "<tr><td>Notify me</td><td>"
-    answer += "<input type='radio' id='once' name='frequency' value='0'><label class='notifyLabel' for='once'>Once</label><br>"
+    answer += "<input type='radio' id='once' name='frequency' checked value='0'><label class='notifyLabel' for='once'>Once</label><br>"
     answer += "<input type='radio' id='hourly' name='frequency' value='1'><label class='notifyLabel' for='hourly'>Hourly</label><br>"
     answer += "<input type='radio' id='daily' name='frequency' value='24'><label class='notifyLabel' for='daily'>Daily</label><br>"
     answer += "<input type='radio' id='weekly' name='frequency' value='168'><label class='notifyLabel' for='weekly'>Weekly</label><br>"
@@ -173,6 +183,7 @@ function showSubscribe(){
 function loadSubscribe() {
     if(User.UserName == "") {
         document.getElementById('Subscribe').innerHTML = "<h3>If you'd like to subscribe and be notified when a product becomes available</h3><input type='submit' class='subscribeButton' onclick='showSubscribe()' value='Click here'>";
+        if(lastSearch.SearchType != "") {callAPI(lastSearch.SearchKey, lastSearch.SearchType);} 
     }
 }
 
@@ -180,7 +191,10 @@ function productSubscribe(productID) {
     // Subscribe
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");    
-    var raw = JSON.stringify({"Subscribe": "True", "UserName": User.UserName, "ProductID": productID, "Email": User.Email, "Phone": User.Phone, "Frequency": User.NotificationFrequency, "Time": (new Date().toISOString())});
+    var current_time = (new Date().toISOString()).toString();
+    current_time = current_time.replace("T", " ");
+    current_time = current_time.substr(0, 19);
+    var raw = JSON.stringify({"Subscribe": "True", "UserName": User.UserName, "ProductID": productID, "Email": User.Email, "Phone": User.Phone, "Frequency": User.NotificationFrequency, "Time": current_time});
     var requestOptions = {
         method: 'POST',
         headers: myHeaders,
